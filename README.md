@@ -7,7 +7,7 @@ In most organizations, a data engineer is the primary role responsible for integ
 There are three primary types of data that a data engineer will work with:
 
 1. **Structured**
-Structured data primarily comes from table-based source systems such as a relational database or from a flat file such as a comma separated (CSV) file. The primary element of a structured file is that the rows and columns are aligned consistently throughout the file.
+Structured data primarily comes from table-based source systems such as a relational database or from a flat file such as a comma-separated (CSV) file. The primary element of a structured file is that the rows and columns are aligned consistently throughout the file.
 
 2. **Semi-Structured**
 
@@ -32,9 +32,9 @@ One of the core responsibilities of a data engineer is to design, implement, and
 
 <img src="https://learn.microsoft.com/en-us/training/wwl-data-ai/introduction-to-data-engineering-azure/media/4-stream-data.png">
 
-Streaming data refers to perpetual sources of data that generate data values in real-time, often relating to specific events. Common sources of streaming data include internet-of-things (IoT) devices and social media feeds.
+Streaming data refers to perpetual sources of data that generate data values in real time, often relating to specific events. Common sources of streaming data include Internet-of-things (IoT) devices and social media feeds.
 
-Data engineers often need to implement solutions that capture real-time stream of data and ingest them into analytical data systems, often combining the real-time data with other application data that is processed in batches.
+Data engineers often need to implement solutions that capture real-time streams of data and ingest them into analytical data systems, often combining the real-time data with other application data that is processed in batches.
 
 **Data pipelines**
 
@@ -69,15 +69,26 @@ Data engineers need to be proficient with Spark, using notebooks and other code 
 
 
 
+## DATA LAKE STORAGE - Case Study (Azure Data Lake Storage Gen2) 
+
+<img src = "https://learn.microsoft.com/en-us/training/data-ai-cert/introduction-to-azure-data-lake-storage/media/azure-data-lake-gen-2.png">
 
 
 
+Benefits
+Data Lake Storage is designed to deal with this variety and volume of data at an exabyte scale while securely handling hundreds of gigabytes of throughput. With this, you can use Data Lake Storage Gen2 as the basis for both real-time and batch solutions.
 
+Hadoop compatible access
+A benefit of Data Lake Storage is that you can treat the data as if it's stored in a Hadoop Distributed File System (HDFS). With this feature, you can store the data in one place and access it through compute technologies including Azure Databricks, Azure HDInsight, and Azure Synapse Analytics without moving the data between environments. The data engineer also has the ability to use storage mechanisms such as the parquet format, which is highly compressed and performs well across multiple platforms using an internal columnar storage.
 
+Security
+Data Lake Storage supports access control lists (ACLs) and Portable Operating System Interface (POSIX) permissions that don't inherit the permissions of the parent directory. In fact, you can set permissions at a directory level or file level for the data stored within the data lake, providing a much more secure storage system. This security is configurable through technologies such as Hive and Spark or utilities such as Azure Storage Explorer, which runs on Windows, macOS, and Linux. All data that is stored is encrypted at rest by using either Microsoft or customer-managed keys.
 
+Performance
+Azure Data Lake Storage organizes the stored data into a hierarchy of directories and subdirectories, much like a file system, for easier navigation. As a result, data processing requires less computational resources, reducing both the time and cost.
 
-
-
+Data redundancy
+Data Lake Storage takes advantage of the Azure Blob replication models that provide data redundancy in a single data center with locally redundant storage (LRS), or to a secondary region by using the Geo-redundant storage (GRS) option. This feature ensures that your data is always available and protected if catastrophe strikes.
 
 
 
