@@ -16,3 +16,66 @@ Semi-structured data is data such as JavaScript object notation (JSON) files, wh
 3. **Unstructured**
 
 Unstructured data includes data stored as key-value pairs that don't adhere to standard relational models and Other types of unstructured data that are commonly used include portable data format (PDF), word processor documents, and images.
+
+
+# Important data engineering concepts
+
+**Operational and analytical data**
+<img src= "https://learn.microsoft.com/en-us/training/wwl-data-ai/introduction-to-data-engineering-azure/media/4-operational-analytical-data.png">
+
+<i>Operational data <i>is usually transactional data that is generated and stored by applications, often in a relational or non-relational database. <i>Analytical data<i> is data that has been optimized for analysis and reporting, often in a data warehouse.
+
+One of the core responsibilities of a data engineer is to design, implement, and manage solutions that integrate operational and analytical data sources or extract operational data from multiple systems, transform it into appropriate structures for analytics, and load it into an analytical data store (usually referred to as ETL solutions).
+
+**Streaming data**
+<img src="https://learn.microsoft.com/en-us/training/wwl-data-ai/introduction-to-data-engineering-azure/media/4-stream-data.png">
+
+Streaming data refers to perpetual sources of data that generate data values in real-time, often relating to specific events. Common sources of streaming data include internet-of-things (IoT) devices and social media feeds.
+
+Data engineers often need to implement solutions that capture real-time stream of data and ingest them into analytical data systems, often combining the real-time data with other application data that is processed in batches.
+
+**Data pipelines**
+<img src= "https://learn.microsoft.com/en-us/training/wwl-data-ai/introduction-to-data-engineering-azure/media/4-data-pipeline.png">
+Data pipelines are used to orchestrate activities that transfer and transform data. Pipelines are the primary way in which data engineers implement repeatable extract, transform, and load (ETL) solutions that can be triggered based on a schedule or in response to events.
+
+**Data lakes**
+<img src= "https://learn.microsoft.com/en-us/training/wwl-data-ai/introduction-to-data-engineering-azure/media/4-data-lake.png">
+A data lake is a storage repository that holds large amounts of data in native, raw formats. Data lake stores are optimized for scaling to massive volumes (terabytes or petabytes) of data. The data typically comes from multiple heterogeneous sources and may be structured, semi-structured, or unstructured.
+
+The idea with a data lake is to store everything in its original, untransformed state. This approach differs from a traditional data warehouse, which transforms and processes the data at the time of ingestion.
+
+**Data warehouses**
+<img src= "https://learn.microsoft.com/en-us/training/wwl-data-ai/introduction-to-data-engineering-azure/media/4-data-warehouse.png">
+A data warehouse is a centralized repository of integrated data from one or more disparate sources. Data warehouses store current and historical data in relational tables that are organized into a schema that optimizes performance for analytical queries.
+
+Data engineers are responsible for designing and implementing relational data warehouses, and managing regular data loads into tables.
+
+**Apache Spark**
+<img src = "https://www.google.com/url?sa=i&url=http%3A%2F%2Fcrossroadelf.com%2Fspark.php&psig=AOvVaw3TY1qc3y1_wV7DYwmGQsrW&ust=1696158872426000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKDqwLOa0oEDFQAAAAAdAAAAABAD" alt = "https://learn.microsoft.com/en-us/training/wwl-data-ai/introduction-to-data-engineering-azure/media/4-apache-spark.png">
+
+
+Apache Spark is a parallel processing framework that takes advantage of in-memory processing and a distributed file storage. It's a common open-source software (OSS) tool for big data scenarios.
+
+Data engineers need to be proficient with Spark, using notebooks and other code artifacts to process data in a data lake and prepare it for modeling and analysis.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
