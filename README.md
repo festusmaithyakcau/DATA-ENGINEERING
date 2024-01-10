@@ -93,6 +93,18 @@ Data Lake Storage takes advantage of the Azure Blob replication models that prov
 
 
 
+## Author :black_nib:
+
+* Festus Maithya <[festusmaithyakcau](https://github.com/festusmaithyakcau)>
+
+## Acknowledgements :pray:
+
+All work contained in this project was completed as part of the curriculum for the Bachelors Degree in Software Development at KCA UNIVERSITY (CLOUD Application Development Unit).For more information, visit
+[this link](https://www.kcau.ac.ke/).
+
+<p align="center">
+  <img src= "![image](https://github.com/festusmaithyakcau/CLOUD_DEVELOPMENT/assets/93762721/e0ec6e63-f992-4cca-b92f-0eacc6cd5cef)" alt="KCA UNIVERSITY">
+</p>
 
 
 
