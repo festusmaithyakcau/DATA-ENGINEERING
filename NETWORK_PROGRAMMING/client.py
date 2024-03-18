@@ -9,6 +9,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     username = input("Enter your username: ")
     s.send(username.encode('utf-8'))
 
+    # Request past messages
+    s.send("Past messages".encode('utf-8'))
+
+    past_messages = s.recv(1024).decode('utf-8')
+    if past_messages:
+        print("Past messages:")
+        print(past_messages)  # Display past messages
+
     while True:
         data = input()
         if data == 'quit':
