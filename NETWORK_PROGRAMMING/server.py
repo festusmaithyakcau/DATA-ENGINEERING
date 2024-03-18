@@ -7,6 +7,7 @@ PORT = 5050  # Port to listen on (non-privileged ports are > 1023)
 
 clients = []
 client_lock = threading.Lock()
+messages = []  # List to store messages
 
 # Configure logging
 logging.basicConfig(filename='server_log.log', level=logging.INFO, format='%(asctime)s %(message)s')
@@ -20,6 +21,10 @@ def handle_client(conn, addr):
     username = conn.recv(1024).decode('utf-8')
     logging.info(f"Client connected: {username} ({addr})")
 
+    # Send past messages upon connection
+    past_messages = "\n".join(messages)  # Join messages with newline
+    conn.sendall(past_messages.encode('utf-8'))
+
     with client_lock:
         clients.append((conn, username))
         broadcast(f"{username} has joined the chat!".encode('utf-8'))
@@ -30,6 +35,7 @@ def handle_client(conn, addr):
             if not data:
                 break
             with client_lock:
+                messages.append(f"{username}: {data.decode('utf-8')}")  # Store message
                 broadcast(f"{username}: {data}".encode('utf-8'), conn)
         except:
             break
