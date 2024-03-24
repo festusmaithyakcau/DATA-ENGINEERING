@@ -1,5 +1,5 @@
 ## **ML MODELS**
-This directory contains all the Machine Learning models and techniques I've used 
+This directory contains all the Machine Learning models and techniques I've developed and implemented in my projects.
 
 
 ## Author :black_nib:
