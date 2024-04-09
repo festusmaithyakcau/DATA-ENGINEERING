@@ -9,6 +9,7 @@ Because machine learning is based on mathematics and statistics, it's common to 
 Let's explore the steps involved in training and inferencing.
 
 Diagram showing the training and inferencing phases in machine learning.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/machine-learning.png">
 
 The training data consists of past observations. In most cases, the observations include the observed attributes or features of the thing being observed, and the known value of the thing you want to train a model to predict (known as the label).
 
