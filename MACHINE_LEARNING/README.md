@@ -164,6 +164,7 @@ Temperature (x)	Actual sales (y)	Predicted sales (ŷ)
 We can plot both the predicted and actual labels against the feature values like this:
 
 Diagram of a scatter plot showing predicted and actual values.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/regression-variance.png">
 
 The predicted labels are calculated by the model so they're on the function line, but there's some variance between the ŷ values calculated by the function and the actual y values from the validation dataset; which is indicated on the plot as a line between the ŷ and y values that shows how far off the prediction was from the actual value.
 
