@@ -125,10 +125,12 @@ Temperature (x)	Ice cream sales (y)
 To get an insight of how these x and y values might relate to one another, we can plot them as coordinates along two axes, like this:
 
 Diagram of a scatter plot showing x and y.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/scatter-plot.png">
 
 Now we're ready to apply an algorithm to our training data and fit it to a function that applies an operation to x to calculate y. One such algorithm is linear regression, which works by deriving a function that produces a straight line through the intersections of the x and y values while minimizing the average distance between the line and the plotted points, like this:
 
 Diagram of the scatter plot with a regression line added.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/regression-line.png">
 
 The line is a visual representation of the function in which the slope of the line describes how to calculate the value of y for a given value of x. The line intercepts the x axis at 50, so when x is 50, y is 0. As you can see from the axis markers in the plot, the line slopes so that every increase of 5 along the x axis results in an increase of 5 up the y axis; so when x is 55, y is 5; when x is 60, y is 10, and so on. To calculate a value of y for a given value of x, the function simply subtracts 50; in other words, the function can be expressed like this:
 
