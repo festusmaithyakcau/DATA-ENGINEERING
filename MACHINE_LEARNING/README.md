@@ -269,6 +269,7 @@ Binary classification evaluation metrics
 The first step in calculating evaluation metrics for a binary classification model is usually to create a matrix of the number of correct and incorrect predictions for each possible class label:
 
 Diagram of a confusion matrix.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/binary-confusion-matrix.png">
 
 This visualization is called a confusion matrix, and it shows the prediction totals where:
 
@@ -348,6 +349,7 @@ Another name for recall is the true positive rate (TPR), and there's an equivale
 Of course, if we were to change the threshold above which the model predicts true (1), it would affect the number of positive and negative predictions; and therefore change the TPR and FPR metrics. These metrics are often used to evaluate a model by plotting a received operator characteristic (ROC) curve that compares the TPR and FPR for every possible threshold value between 0.0 and 1.0:
 
 Diagram of a ROC curve.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/roc-chart.png">
 
 The ROC curve for a perfect model would go straight up the TPR axis on the left and then across the FPR axis at the top. Since the plot area for the curve measures 1x1, the area under this perfect curve would be 1.0 (meaning that the model is correct 100% of the time). In contrast, a diagonal line from the bottom-left to the top-right represents the results that would be achieved by randomly guessing a binary label; producing an area under the curve of 0.5. In other words, given two possible class labels, you could reasonably expect to guess correctly 50% of the time.
 
