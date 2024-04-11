@@ -99,29 +99,29 @@ Let's explore regression with a simplified example in which we'll train a model 
 For our example, let's stick with the ice cream sales scenario we discussed previously. For our feature, we'll consider the temperature (let's assume the value is the maximum temperature on a given day), and the label we want to train a model to predict is the number of ice creams sold that day. We'll start with some historic data that includes records of daily temperatures (x) and ice cream sales (y):
 
 Diagram of a thermometer.	Diagram of a ice creams.
-Temperature (x)	Ice cream sales (y)
-51	1
-52	0
-67	14
-65	14
-70	23
-69	20
-72	23
-75	26
-73	22
-81	30
-78	26
-83	36
+Temperature (x)	       Ice cream sales (y)
+51	                              1
+52	                             	0
+67		                             14
+65		                             14
+70		                             23
+69		                             20
+72		                             23
+75	                             	26
+73		                             22
+81	                             	30
+78		                             26
+83		                             36
 Training a regression model
 We'll start by splitting the data and using a subset of it to train a model. Here's the training dataset:
 
-Temperature (x)	Ice cream sales (y)
-51	1
-65	14
-69	20
-72	23
-75	26
-81	30
+Temperature (x)	         Ice cream sales (y)
+51		                             1
+65		                             14
+69		                             20
+72		                             23
+75		                             26
+81		                             30
 To get an insight of how these x and y values might relate to one another, we can plot them as coordinates along two axes, like this:
 
 Diagram of a scatter plot showing x and y.
@@ -143,24 +143,24 @@ But just how accurate is our model?
 Evaluating a regression model
 To validate the model and evaluate how well it predicts, we held back some data for which we know the label (y) value. Here's the data we held back:
 
-Temperature (x)	Ice cream sales (y)
-52	0
-67	14
-70	23
-73	22
-78	26
-83	36
+Temperature (x)	          Ice cream sales (y)
+52		                             0
+67		                             14
+70		                             23
+73		                             22
+78		                             26
+83		                             36
 We can use the model to predict the label for each of the observations in this dataset based on the feature (x) value; and then compare the predicted label (ŷ) to the known actual label value (y).
 
 Using the model we trained earlier, which encapsulates the function f(x) = x-50, results in the following predictions:
 
-Temperature (x)	Actual sales (y)	Predicted sales (ŷ)
-52	0	2
-67	14	17
-70	23	20
-73	22	23
-78	26	28
-83	36	33
+Temperature (x)           	Actual sales (y)            	Predicted sales (ŷ)
+52		                             0		                             2
+67		                             14	                             	17
+70		                             23		                             20
+73	                             	22		                             23
+78	                             	26	                             	28
+83		                             36		                             33
 We can plot both the predicted and actual labels against the feature values like this:
 
 Diagram of a scatter plot showing predicted and actual values.
@@ -214,13 +214,13 @@ Example - binary classification
 To understand how binary classification works, let's look at a simplified example that uses a single feature (x) to predict whether the label y is 1 or 0. In this example, we'll use the blood glucose level of a patient to predict whether or not the patient has diabetes. Here's the data with which we'll train the model:
 
 Diagram of a syringe.	Diagram of a diabetic and non-diabetic person.
-Blood glucose (x)	Diabetic? (y)
-67	0
-103	1
-114	1
-72	0
-116	1
-65	0
+Blood glucose (x)	            Diabetic? (y)
+67	                              	0
+103		                             1
+114		                             1
+72		                              0
+116	                             	1
+65	                              	0
 ## Training a binary classification model
 To train the model, we'll use an algorithm to fit the training data to a function that calculates the probability of the class label being true (in other words, that the patient has diabetes). Probability is measured as a value between 0.0 and 1.0, such that the total probability for all possible classes is 1.0. So for example, if the probability of a patient having diabetes is 0.7, then there's a corresponding probability of 0.3 that the patient isn't diabetic.
 
@@ -244,13 +244,13 @@ The diagram also includes a horizontal line to indicate the threshold at which a
 Evaluating a binary classification model
 As with regression, when training a binary classification model you hold back a random subset of data with which to validate the trained model. Let's assume we held back the following data to validate our diabetes classifier:
 
-Blood glucose (x)	Diabetic? (y)
-66	0
-107	1
-112	1
-71	0
-87	1
-89	1
+Blood glucose (x)        	Diabetic? (y)
+66		                             0
+107		                            1
+112		                            1
+71		                             0
+87		                             1
+89		                             1
 Applying the logistic function we derived previously to the x values results in the following plot.
 
 Diagram of predicted labels on a sigmoid curve.
@@ -258,13 +258,13 @@ Diagram of predicted labels on a sigmoid curve.
 
 Based on whether the probability calculated by the function is above or below the threshold, the model generates a predicted label of 1 or 0 for each observation. We can then compare the predicted class labels (ŷ) to the actual class labels (y), as shown here:
 
-Blood glucose (x)	Actual diabetes diagnosis (y)	Predicted diabetes diagnosis (ŷ)
-66	0	0
-107	1	1
-112	1	1
-71	0	0
-87	1	0
-89	1	1
+Blood glucose (x)	    Actual diabetes diagnosis (y)         	Predicted diabetes diagnosis (ŷ)
+66		                             0		                             0
+107		                            1		                             1
+112		                            1		                             1
+71		                             0		                             0
+87		                             1		                             0
+89		                             1		                             1
 Binary classification evaluation metrics
 The first step in calculating evaluation metrics for a binary classification model is usually to create a matrix of the number of correct and incorrect predictions for each possible class label:
 
