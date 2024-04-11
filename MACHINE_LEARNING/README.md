@@ -203,3 +203,7 @@ Algorithm selection (We explored linear regression in the previous example, but 
 Algorithm parameters (numeric settings to control algorithm behavior, more accurately called hyperparameters to differentiate them from the x and y parameters).
 After multiple iterations, the model that results in the best evaluation metric that's acceptable for the specific scenario is selected.
 
+
+
+# **BINARY CLASSIFICATION**
+
