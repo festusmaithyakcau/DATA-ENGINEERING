@@ -421,6 +421,7 @@ Flipper length (x)	             Actual species (y)	              Predicted speci
 The confusion matrix for a multiclass classifier is similar to that of a binary classifier, except that it shows the number of predictions for each combination of predicted (ŷ) and actual class labels (y):
 
 Diagram of a multiclass confusion matrix.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/multiclass-confusion-matrix.png">
 
 From this confusion matrix, we can determine the metrics for each individual class as follows:
 
