@@ -227,6 +227,7 @@ To train the model, we'll use an algorithm to fit the training data to a functio
 There are many algorithms that can be used for binary classification, such as logistic regression, which derives a sigmoid (S-shaped) function with values between 0.0 and 1.0, like this:
 
 Diagram of a logistic function.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/sigmoid-plot.png">
 
  Note
 
@@ -253,6 +254,7 @@ Blood glucose (x)	Diabetic? (y)
 Applying the logistic function we derived previously to the x values results in the following plot.
 
 Diagram of predicted labels on a sigmoid curve.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/classification-predictions.png">
 
 Based on whether the probability calculated by the function is above or below the threshold, the model generates a predicted label of 1 or 0 for each observation. We can then compare the predicted class labels (ŷ) to the actual class labels (y), as shown here:
 
