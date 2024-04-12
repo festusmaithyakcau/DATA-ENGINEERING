@@ -530,7 +530,7 @@ How does a neural network learn?
 The weights in a neural network are central to how it calculates predicted values for labels. During the training process, the model learns the weights that will result in the most accurate predictions. Let's explore the training process in a little more detail to understand how this learning takes place.
 
 Diagram of a neural network being trained, evaluated, and optimized.
-<ing src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/neural-network-training.png">
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/neural-network-training.png">
 
 The training and validation datasets are defined, and the training features are fed into the input layer.
 The neurons in each layer of the network apply their weights (which are initially assigned randomly) and feed the data through the network.
