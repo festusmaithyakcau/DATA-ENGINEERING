@@ -492,7 +492,7 @@ Silhouette: A value between -1 and 1 that summarizes the ratio of distance betwe
 Deep learning is an advanced form of machine learning that tries to emulate the way the human brain learns. The key to deep learning is the creation of an artificial neural network that simulates electrochemical activity in biological neurons by using mathematical functions, as shown here.
 
 Biological neural network	Artificial neural network
-Diagram of a natural neural network.	Diagram of an artificial neural network.
+Diagram of a natural neural network.	<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/biological-neural-network.png">                                                                                      Diagram of an artificial neural network. <img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/artificial-neural-network.png">
 Neurons fire in response to electrochemical stimuli. When fired, the signal is passed to connected neurons.	Each neuron is a function that operates on an input value (x) and a weight (w). The function is wrapped in an activation function that determines whether to pass the output on.
 Artificial neural networks are made up of multiple layers of neurons - essentially defining a deeply nested function. This architecture is the reason the technique is referred to as deep learning and the models produced by it are often referred to as deep neural networks (DNNs). You can use deep neural networks for many kinds of machine learning problem, including regression and classification, as well as more specialized models for natural language processing and computer vision.
 
@@ -502,6 +502,7 @@ Example - Using deep learning for classification
 To better understand how a deep neural network model works, let's explore an example in which a neural network is used to define a classification model for penguin species.
 
 Diagram of a neural network used to classify a penguin species.
+<img src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/deep-classification.png">
 
 The feature data (x) consists of some measurements of a penguin. Specifically, the measurements are:
 
@@ -529,6 +530,7 @@ How does a neural network learn?
 The weights in a neural network are central to how it calculates predicted values for labels. During the training process, the model learns the weights that will result in the most accurate predictions. Let's explore the training process in a little more detail to understand how this learning takes place.
 
 Diagram of a neural network being trained, evaluated, and optimized.
+<ing src = "https://learn.microsoft.com/en-us/training/wwl-data-ai/fundamentals-machine-learning/media/neural-network-training.png">
 
 The training and validation datasets are defined, and the training features are fed into the input layer.
 The neurons in each layer of the network apply their weights (which are initially assigned randomly) and feed the data through the network.
