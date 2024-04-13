@@ -25,3 +25,18 @@ filtered_df.write.mode("overwrite").format("delta").save(f"Tables/{table_name}")
 
 # Confirm load as Delta table
 print(f"Spark DataFrame saved to Delta table: {table_name}")
+
+"""
+Optimize Delta table writes
+Fabric notebooks easily scale for large data, therefore read and write optimization is key. Consider these optimization functions for even more performant data ingestion.
+
+V-Order enables faster and more efficient reads by various compute engines, such as Power BI, SQL, and Spark.V-order applies special sorting, distribution, encoding, and compression on parquet files at write-time.
+
+Optimize write improves the performance and reliability by reducing the number of files written and increasing their size. It's useful for scenarios where the Delta tables have suboptimal or nonstandard file sizes, or where the extra write latency is tolerable.
+
+""'
+# Enable V-Order 
+spark.conf.set("spark.sql.parquet.vorder.enabled", "true")
+
+# Enable automatic Delta optimized write
+spark.conf.set("spark.microsoft.delta.optimizeWrite.enabled", "true")
