@@ -13,3 +13,15 @@ print(f"DataFrame has been written to Parquet file: {parquet_output_path}")
 delta_table_name = "your_delta_table_name"
 df.write.format("delta").mode("overwrite").saveAsTable(delta_table_name)
 print(f"DataFrame has been written to Delta table: {delta_table_name}")
+
+
+"""
+Write to a Delta table
+Delta tables are one of the key features of Fabric lakehouses. Easily ingest and load your external data into a Delta table via notebooks.
+"""
+# Use format and save to load as a Delta table
+table_name = "nyctaxi_raw"
+filtered_df.write.mode("overwrite").format("delta").save(f"Tables/{table_name}")
+
+# Confirm load as Delta table
+print(f"Spark DataFrame saved to Delta table: {table_name}")
