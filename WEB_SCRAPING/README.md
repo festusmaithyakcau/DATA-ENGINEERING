@@ -1,5 +1,7 @@
 ## **WEB SCRAPING/DATA COLLECTION**
 
+This repo contains all work pertaining web scraping and data collection
+
 
 
 ## Author :black_nib:
