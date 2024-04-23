@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Health Monitoring Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+    <h1>Health Monitoring Dashboard</h1>
+
+    <div class="container">
+        <div class="section">
+            <h2>Patient Statistics</h2>
+            <ul>
+                <li>Heart Rate: {{ heart_rate }}</li>
+                <!-- Other stats can be added here -->
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>ECG Visualization</h2>
+            <div id="ecg-chart"></div>
+            <script>
+                // Assuming that we have 'ecg_data' variable containing ECG data as a list of values
+                var trace = {
+                    x: [ ...Array(ecg_data.length).keys() ],  // Generate x-axis values
+                    y: ecg_data,
+                    type: 'scatter'
+                };
+                var layout = {
+                    title: 'ECG Signal',
+                    xaxis: { title: 'Time' },
+                    yaxis: { title: 'ECG Value' }
+                };
+                Plotly.newPlot('ecg-chart', [ trace ], layout);
+            </script>
+        </div>
+
+        <div class="section">
+            <h2>Recommendations</h2>
+            <p>{{ recommendation }}</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
