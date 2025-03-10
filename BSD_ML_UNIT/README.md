@@ -11,7 +11,7 @@
 
 ## Acknowledgements :pray:
 
-All work contained in this project was completed as part of the curriculum for the Bachelors Degree in Software Development at KCA UNIVERSITY (DATA ENGINEERING SECTOR).For more information, visit
+All work contained in this project was completed as part of the curriculum for the Bachelors Degree in Software Development at KCA UNIVERSITY (MACHINE LEARNING).For more information, visit
 [this link](https://www.kcau.ac.ke/).
 
 <p align="center">
