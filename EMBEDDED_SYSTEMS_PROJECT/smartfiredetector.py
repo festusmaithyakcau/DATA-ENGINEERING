@@ -23,7 +23,7 @@ alert_count = 0
 def connect_wifi():
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
-    wlan.connect(config.SSID, config.PASSWORD)  # Load credentials from config.py
+    wlan.connect(config.SSID, config.PASSWORD)
     
     print("⏳ Connecting to WiFi...")
     timeout = 10  # 10 seconds timeout
@@ -37,6 +37,20 @@ def connect_wifi():
     else:
         print("❌ WiFi Connection Failed")
         return False
+
+# 📡 Function to get device location
+def get_location():
+    try:
+        # Using a free IP-based geolocation API (for example, ip-api)
+        response = urequests.get("http://ip-api.com/json")
+        location_data = response.json()
+        city = location_data['city']
+        lat = location_data['lat']
+        lon = location_data['lon']
+        return city, lat, lon
+    except Exception as e:
+        print("❌ Error fetching location:", e)
+        return "Unknown", 0.0, 0.0
 
 # 📢 Function to send Telegram Alert
 def send_telegram_message(message):
@@ -63,35 +77,33 @@ def fire_detection_system():
         if FLAME_SENSOR.value() == 0:  # Fire Detected
             while FLAME_SENSOR.value() == 0:
                 # 🔴 Keep Red LED and Buzzer cycling until fire is cleared
-                # Keep looping while fire is detected
-                # Turn off Buzzer
                 RED_LED.on()  # Turn on RED LED
                 utime.sleep(0.5)  # Keep LED on for 0.5 seconds
                 
                 RED_LED.off()  # Turn off RED LED
-                
                 BUZZER.on()  # Turn on Buzzer
                 utime.sleep(1)  # Keep buzzer ON for 1 seconds
-                
                 BUZZER.off()
-                    
+
             if not fire_detected:
                 fire_detected = True
                 alert_count = 0  # Reset alert counter
                 
-                # Read temperature & humidity
+                # Get temperature, humidity, and location
                 temperature = aht10.temperature
                 humidity = aht10.relative_humidity
-                
+                city, lat, lon = get_location()
+
                 print("🔥 Fire detected! Activating alerts...")
-                send_telegram_message(f"🔥 Fire detected! 🚨\n🌡 Temp: {temperature:.1f}°C\n💧 Humidity: {humidity:.1f}%")
+                send_telegram_message(f"🔥 Fire detected! 🚨\n🌡 Temp: {temperature:.1f}°C\n💧 Humidity: {humidity:.1f}%\n📍 Location: {city}, Kenya\n📍 Latitude: {lat}\n📍 Longitude: {lon}\n📍 Google Maps: https://www.google.com/maps?q={lat},{lon}")
             
             # 📩 Send alert every 1 minute, up to 3 times
             if alert_count < 3:
                 utime.sleep(5)  # Wait 1 minute
                 temperature = aht10.temperature
                 humidity = aht10.relative_humidity
-                send_telegram_message(f"🚨 Fire Alert (Repeat) 🚨\n🌡 Temp: {temperature:.1f}°C\n💧 Humidity: {humidity:.1f}%")
+                city, lat, lon = get_location()
+                send_telegram_message(f"🚨 Fire Alert (Repeat) 🚨\n🌡 Temp: {temperature:.1f}°C\n💧 Humidity: {humidity:.1f}%\n📍 Location: {city}, Kenya\n📍 Latitude: {lat}\n📍 Longitude: {lon}\n📍 Google Maps: https://www.google.com/maps?q={lat},{lon}")
                 alert_count += 1
         
         else:  # ✅ Normal Mode
