@@ -3,14 +3,9 @@ import urequests
 import utime
 import machine
 from ahtx0 import AHT10  # AHT10 temperature & humidity sensor library
+import config  # Import WiFi & Telegram credentials
 
-# 🌐 WiFi Credentials
-SSID = ""
-PASSWORD = ""
-# Telegram Bot Credentials
-BOT_TOKEN = ""
-CHAT_ID = ""
-# 🛠️ GPIO Pin Assignments# 🔥 GPIO Pin Assignments
+# 🔥 GPIO Pin Assignments
 FLAME_SENSOR = machine.Pin(16, machine.Pin.IN)  # Flame sensor (D0)
 RED_LED = machine.Pin(14, machine.Pin.OUT)  # Red LED (Fire Alert)
 GREEN_LED = machine.Pin(15, machine.Pin.OUT)  # Green LED (Normal Mode)
@@ -28,7 +23,7 @@ alert_count = 0
 def connect_wifi():
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
-    wlan.connect(SSID, PASSWORD)
+    wlan.connect(config.SSID, config.PASSWORD)  # Load credentials from config.py
     
     print("⏳ Connecting to WiFi...")
     timeout = 10  # 10 seconds timeout
@@ -47,7 +42,7 @@ def connect_wifi():
 def send_telegram_message(message):
     encoded_message = message.replace(" ", "%20").replace("\n", "%0A").replace("🔥", "%F0%9F%94%A5").replace("✅", "%E2%9C%85")
 
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id={CHAT_ID}&text={encoded_message}"
+    url = f"https://api.telegram.org/bot{config.BOT_TOKEN}/sendMessage?chat_id={config.CHAT_ID}&text={encoded_message}"
     
     try:
         print("📤 Sending Telegram Alert...")
@@ -66,6 +61,20 @@ def fire_detection_system():
 
     while True:
         if FLAME_SENSOR.value() == 0:  # Fire Detected
+            while FLAME_SENSOR.value() == 0:
+                # 🔴 Keep Red LED and Buzzer cycling until fire is cleared
+                # Keep looping while fire is detected
+                # Turn off Buzzer
+                RED_LED.on()  # Turn on RED LED
+                utime.sleep(0.5)  # Keep LED on for 0.5 seconds
+                
+                RED_LED.off()  # Turn off RED LED
+                
+                BUZZER.on()  # Turn on Buzzer
+                utime.sleep(1)  # Keep buzzer ON for 1 seconds
+                
+                BUZZER.off()
+                    
             if not fire_detected:
                 fire_detected = True
                 alert_count = 0  # Reset alert counter
@@ -77,21 +86,9 @@ def fire_detection_system():
                 print("🔥 Fire detected! Activating alerts...")
                 send_telegram_message(f"🔥 Fire detected! 🚨\n🌡 Temp: {temperature:.1f}°C\n💧 Humidity: {humidity:.1f}%")
             
-            # 🔴 Blink Red LED at 0.5s intervals
-            RED_LED.on()
-            utime.sleep(0.5)
-            RED_LED.off()
-            utime.sleep(0.5)
-            
-            # 🔊 Ring Buzzer every 2 seconds
-            BUZZER.on()
-            utime.sleep(0.5)
-            BUZZER.off()
-            utime.sleep(1.5)  # Total 2 seconds
-            
             # 📩 Send alert every 1 minute, up to 3 times
             if alert_count < 3:
-                utime.sleep(60)  # Wait 1 minute
+                utime.sleep(5)  # Wait 1 minute
                 temperature = aht10.temperature
                 humidity = aht10.relative_humidity
                 send_telegram_message(f"🚨 Fire Alert (Repeat) 🚨\n🌡 Temp: {temperature:.1f}°C\n💧 Humidity: {humidity:.1f}%")
